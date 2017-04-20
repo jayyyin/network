@@ -71,7 +71,7 @@ export default class Person extends React.Component {
             <div className="col d-flex flex-column">
               <div className="justify-content-end row no-gutters slanty-background-gray">
                 <div className="col col-auto">
-                  <button className="more-details btn btn-sm" onClick={this.flip} >{this.state.flipped?`MORE DETAILS`:`SEE QUOTE`}</button>
+                  <button className="more-details btn btn-sm background-slant-left" onClick={this.flip} >{this.state.flipped?`MORE DETAILS`:`SEE QUOTE`}</button>
                 </div>
               </div>
               <div className={`row flippable-card flip-${this.state.flipped}`} style={this.state.flippableStyle}>
