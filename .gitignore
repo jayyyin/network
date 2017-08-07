@@ -6,3 +6,4 @@ node_modules/
 dest/
 source/json/temp/
 package-lock.json
+/venv
