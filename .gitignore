@@ -7,3 +7,5 @@ dest/
 source/json/temp/
 package-lock.json
 /venv
+/network-api/app/staticfiles
+/network-api/app/networkapi/frontend
