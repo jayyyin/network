@@ -92,7 +92,6 @@ INSTALLED_APPS = list(filter(None, [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.redirects',
 
@@ -103,6 +102,7 @@ INSTALLED_APPS = list(filter(None, [
     'mezzanine.pages',
     'mezzanine.forms',
 
+    'whitenoise.runserver_nostatic',
     'rest_framework',
     'django_filters',
     'gunicorn',
