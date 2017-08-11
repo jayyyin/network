@@ -25,7 +25,7 @@ def debounce_and_throttle(debounce_seconds, throttle_seconds):
                             .format(throttle_seconds - time_delta.seconds)
                         )
                         return
-
+                logger.info('Calling the function')
                 debounced_and_throttled.last_called = now
                 fn(*args, **kwargs)
 
