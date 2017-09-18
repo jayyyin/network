@@ -1,4 +1,4 @@
-{% load i18n staticfiles %}
+{% load i18n %}
 
 <div id="{{ inline_admin_formset.formset.prefix }}-group"
      class="inline-group inline-stacked{% if inline_admin_formset.opts.sortable %} sortable{% endif %}{% if inline_admin_formset.opts.classes %} {{ inline_admin_formset.opts.classes|join:" " }}{% endif %}" name="inlinegroup">
@@ -29,7 +29,6 @@
 </div>
 
 <script type="text/javascript">
-
 (function($) {
   var prefix = "{{ inline_admin_formset.formset.prefix|escapejs }}";
   $("#{{ inline_admin_formset.formset.prefix|escapejs }}-group .inline-related").stackedFormset({
@@ -49,7 +48,8 @@
             .text("");
     }
   });
+  $(function() {
+    $(".items > .inline-related").removeClass("collapsed");
+  });
 })(django.jQuery);
 </script>
-
-<script type="text/javascript" src="{% static 'js/admin/homepage.js' %}"></script>

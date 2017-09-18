@@ -74,8 +74,5 @@ class HomepageAdmin(SingletonAdmin):
             extra_context=extra_context,
         )
 
-    class Media:
-        js = ('/static/js/admin/homepage.js',)
-
 
 admin.site.register(Homepage, HomepageAdmin)
