@@ -113,7 +113,6 @@ INSTALLED_APPS = list(filter(None, [
     'adminsortable',
 
     # the network site
-    'networkapi.homepage',
     'networkapi.people',
     'networkapi.news',
     'networkapi.utility',
