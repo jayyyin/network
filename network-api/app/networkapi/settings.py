@@ -45,6 +45,7 @@ env = environ.Env(
     USE_S3=(bool, True),
     USE_X_FORWARDED_HOST=(bool, False),
     XSS_PROTECTION=bool,
+    REFERRER_HEADER_VALUE=(str, ''),
 )
 
 # Read in the environment
@@ -146,6 +147,7 @@ MIDDLEWARE_CLASSES = [
     'mezzanine.core.middleware.SitePermissionMiddleware',
     'mezzanine.pages.middleware.PageMiddleware',
     'mezzanine.core.middleware.FetchFromCacheMiddleware',
+    'networkapi.middleware.ReferrerMiddleware',
 ]
 
 if SOCIAL_SIGNIN:
@@ -394,6 +396,7 @@ if env('SSL_REDIRECT') is True:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 X_FRAME_OPTIONS = env('X_FRAME_OPTIONS')
+REFERRER_HEADER_VALUE = env('REFERRER_HEADER_VALUE')
 
 # Heroku Build trigger URL
 HEROKU_APP_NAME = env('HEROKU_APP_NAME')
