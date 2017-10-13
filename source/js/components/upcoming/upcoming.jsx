@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import env from '../../../../env.json';
 import moment from 'moment';
 
+let networkSiteUrl = env.NETWORK_SITE_URL;
+
+// HEROKU_APP_DOMAIN is used by review apps
+if (!networkSiteUrl && env.HEROKU_APP_NAME) {
+  networkSiteUrl = `https://${env.HEROKU_APP_NAME}.herokuapp.com`;
+}
+
 export default class Upcoming extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +28,7 @@ export default class Upcoming extends React.Component {
       });
     });
 
-    xhr.open(`GET`, `https://${env.NETWORK_API_DOMAIN}/api/milestones`);
+    xhr.open(`GET`, `${networkSiteUrl}/api/milestones`);
     xhr.send();
   }
 
@@ -91,9 +98,8 @@ export default class Upcoming extends React.Component {
         { futureEvents }
         <div className="row">
           <div className="col">
-            <div className="slanty-background">
-              <h3 className="h2-headings-white">Recent</h3>
-            </div>
+            <hr className="hr-gradient"/>
+            <h3 className="h2-headings-white">Recent</h3>
           </div>
         </div>
         { pastEvents }

@@ -22,6 +22,7 @@ export default class HomeNews extends React.Component {
           </h5>
           { item.author && <p className="italic-black mb-1">by {item.author}</p> }
           <p className="small-gray">{moment(item.date, `YYYY-MM-DD`).format(`MMMM YYYY`)}</p>
+          { item.excerpt && <p className="body-black">{item.excerpt}</p> }
           { hr && <hr/> }
         </div>
       );
@@ -39,7 +40,7 @@ export default class HomeNews extends React.Component {
         <div className="col-md-6 mb-3 pb-5">
           <div className="play-button-wrapper">
             <img src={featuredNews.thumbnail}/>
-            <a href={featuredNews.link} className="play-button-overlay"></a>
+            { featuredNews.is_video && <a href={featuredNews.link} className="play-button-overlay"></a> }
           </div>
           <div className="row">
             <div className="col-12">

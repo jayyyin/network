@@ -1,2 +1,2 @@
-release: ls network-api/app/networkapi && python network-api/app/manage.py migrate
+release: cd network-api && python app/manage.py migrate --no-input && python app/manage.py heroku_release
 web: cd network-api/app && gunicorn networkapi.wsgi:application
